@@ -6,7 +6,12 @@ import Card from "react-animated-3d-card";
 const Cardx = ({ character: { name, image, status, species, origin, location } }) => {
     return (
         <div className="column is-one-quarter">
-            {/* <div className="card">
+            
+            <Card
+                style={{ cursor: "pointer" }}
+                onClick={() => console.log("Card clicked")}
+            >
+                <div className="card">
                 <div className="card-image">
                     <figure className="image is-4by3">
                         <img src={image} alt="profile big size" />
@@ -31,15 +36,7 @@ const Cardx = ({ character: { name, image, status, species, origin, location } }
                        <p>location: {location.name}</p>
                     </div>
                 </div>
-            </div> */}
-            <Card
-                style={{
-                    backgroundColor: "green",
-                    cursor: "pointer"
-                }}
-                onClick={() => console.log("Card clicked")}
-            >
-                <h1>Hello World</h1>
+            </div>
             </Card>
         </div>
     )
