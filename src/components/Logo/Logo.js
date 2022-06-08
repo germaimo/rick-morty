@@ -6,6 +6,7 @@ import logo from "../../img/Rick-and-Morty.png";
 
 const Logo = () => {
   return (<div className="column is-full is-flex is-justify-content-center">
+      
           <img style={{width:'40%'}} src={logo} alt="logo of rick and morty" />
         </div> );
 };

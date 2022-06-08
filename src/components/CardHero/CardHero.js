@@ -1,7 +1,7 @@
 import React from "react";
 import "bulma/css/bulma.min.css";
 
-import styles from './cardhero.module.css'
+//import styles from './cardhero.module.css'
 
 const CardHero = ({
   character: { name, image, status, species, origin, location, episode },
@@ -31,7 +31,7 @@ const CardHero = ({
 
             <div className="content">
             
-              Appears in <span class="tag is-light">{episode.length}</span> {episode.length > 1 ? 'episodes': 'episode'} .
+              Appears in <span className="tag is-light">{episode.length}</span> {episode.length > 1 ? 'episodes': 'episode'} .
               <br></br>
               <br></br>
               <br></br>

@@ -25,8 +25,9 @@ const App = () => {
         `https://rickandmortyapi.com/api/character/${charactersRange}`
       );
 
-      setData(response.data);
       
+      setData(response.data);
+
       setCharacterHero(response.data[0]);
 
       setLoading(false);
@@ -35,26 +36,45 @@ const App = () => {
     }
   }, []);
 
+  const getSearchedData = async (name) => {
+    try {
+      const response = await axios.get(
+        `https://rickandmortyapi.com/api/character/?name=${name}`
+      );
+
+      setData(response.data.results);
+
+      setCharacterHero(response.data.results[0]);
+
+      ///https://rickandmortyapi.com/api/character/?name=rick&status=alive
+    } catch (error) {
+      console.log("ERROR EN EL CATCH", error);
+    }
+  };
+
   useEffect(() => {
     getData(1, 14);
   }, [getData]);
 
   const handleCharacterHero = (character) => {
     setCharacterHero(character);
-    
+  };
+
+  const handleSearch = (name) => {
+    getSearchedData(name);
   };
 
   return (
     <div className="container">
       <Menu />
-      <Logo/>
+      <Logo />
       {loading ? (
         <p>Loading...</p>
       ) : (
         <div className="columns is-multiline is-mobile is-justify-content-center">
-          <SearchBox />
-          <Hero data={characterHero}/>
-          
+          <SearchBox handleSearch={handleSearch} />
+          <Hero data={characterHero} />
+
           <Characters handleCharacterHero={handleCharacterHero} data={data} />
         </div>
       )}
