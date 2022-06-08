@@ -1,17 +1,16 @@
-import React from 'react';
-import { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
-import Characters from '../Characters/Characters';
-import Menu from '../Menu/Menu';
-import Hero from '../Hero/Hero';
-import More from '../More/More';
-import Footer from '../Footer/Footer';
-
+import React from "react";
+import { useState, useEffect, useCallback } from "react";
+import axios from "axios";
+import Characters from "../Characters/Characters";
+import Menu from "../Menu/Menu";
+import Hero from "../Hero/Hero";
+import More from "../More/More";
+import Footer from "../Footer/Footer";
 
 const App = () => {
-
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); //ante estaba en false hablar con lean esto
+  const [characterHero, setCharacterHero] = useState(0);
 
   const getData = useCallback(async (from, to) => {
     try {
@@ -19,7 +18,7 @@ const App = () => {
       const charactersRange = Array.from(
         { length: to - from + 1 },
         (_, index) => index + 1
-      ).join(',');
+      ).join(",");
       const response = await axios.get(
         `https://rickandmortyapi.com/api/character/${charactersRange}`
       );
@@ -28,7 +27,7 @@ const App = () => {
       console.log(response.data);
       setLoading(false);
     } catch (error) {
-      console.log('ERROR EN EL CATCH', error);
+      console.log("ERROR EN EL CATCH", error);
     }
   }, []);
 
@@ -36,15 +35,20 @@ const App = () => {
     getData(1, 14);
   }, [getData]);
 
+  const handleCharacterHero = (num) => {
+    setCharacterHero(num);
+    console.log(num, characterHero);
+  };
+
   return (
-    <div className='container'>
+    <div className="container">
       <Menu />
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className='columns is-multiline is-mobile is-justify-content-center'>
-          <Hero data={data[0]} />
-          <Characters data={data} />
+        <div className="columns is-multiline is-mobile is-justify-content-center">
+          <Hero data={data[characterHero]} />
+          <Characters handleCharacterHero={handleCharacterHero} data={data} />
         </div>
       )}
       <More />

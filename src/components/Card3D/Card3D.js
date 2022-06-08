@@ -3,9 +3,11 @@ import "bulma/css/bulma.min.css";
 
 
 
-const Card3D = ({ character: { name, image, status, species, origin, location } }) => {
+const Card3D = ({ character: { id, name, image, status, species, origin, location }, handleClick }) => {
+    
+
     return (
-        <div className="column is-5-mobile is-3-desktop is-flex is-justify-content-center">
+        <div onClick={ () => handleClick(id)} className="column is-5-mobile is-3-desktop is-flex is-justify-content-center">
             {/* <Card onClick={() => console.log("Card clicked")} > */}
                 <div className="card">
                     <div className="card-image">

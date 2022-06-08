@@ -3,9 +3,12 @@ import "bulma/css/bulma.min.css";
 import CardHero from '../CardHero/CardHero';
 
 const Hero = (props) => {
+
+  console.log(props.data)
+
   return (
     <div>
-      <CardHero key={0} character={props.data} /> 
+      <CardHero character={props.data} /> 
     </div>
   )
 }
