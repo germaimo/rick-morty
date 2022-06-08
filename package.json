@@ -11,6 +11,7 @@
     "axios": "^0.27.2",
     "blue": "^1.1.1",
     "bulma": "^0.9.4",
+    "bulma-toast": "^2.4.1",
     "react": "^18.1.0",
     "react-animated-3d-card": "^1.0.2",
     "react-dom": "^18.1.0",

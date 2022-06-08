@@ -1,7 +1,7 @@
 import React from "react";
 import "bulma/css/bulma.min.css";
 
-//import styles from './cardhero.module.css'
+import styles from './cardhero.module.css'
 
 const CardHero = ({
   character: { name, image, status, species, origin, location, episode },
@@ -9,7 +9,7 @@ const CardHero = ({
   return (
     <div className="column is-full is-flex is-justify-content-center">
       
-      <div className="box">
+      <div className={`box ${styles['fixedWidth']}`}>
         <div className="card is-flex is-size-7-desktop is-size-7-touch">
           <div className="card-image">
             <figure className="image">

@@ -12,7 +12,7 @@ const SearchBox = ({handleSearch}) => {
     <>
       <div className="field has-addons">
         <div className="control">
-          <input onChange={handleChange} className="input" type="text" placeholder="Search" />
+          <input onChange={handleChange} className="input" type="text" placeholder="Search by name" />
         </div>
         <div className="control">
           <p onClick={ ()=> handleSearch(textSearch)} className="button is-info has-background-grey-light">🔍</p>

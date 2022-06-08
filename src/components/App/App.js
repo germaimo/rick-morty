@@ -8,6 +8,7 @@ import Hero from "../Hero/Hero";
 import More from "../More/More";
 import Footer from "../Footer/Footer";
 import SearchBox from "../SearchBox/SearchBox";
+import { Toast } from 'bulma-toast';
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -25,7 +26,6 @@ const App = () => {
         `https://rickandmortyapi.com/api/character/${charactersRange}`
       );
 
-      
       setData(response.data);
 
       setCharacterHero(response.data[0]);
@@ -79,6 +79,8 @@ const App = () => {
         </div>
       )}
 
+      {/*<Toast message={'hola'} type={'is-primary'} position={'center'} closeOnClick={true} pauseOnHover={true} opacity={0.8}/>*/}
+        
       <More />
       <Footer />
     </div>

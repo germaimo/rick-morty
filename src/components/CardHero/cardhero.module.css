@@ -15,3 +15,7 @@
   font-weight: 200;
   font-style: normal;
 }
+
+.fixedWidth{
+    width: 720px;
+}
