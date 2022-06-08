@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@mikekorakakis/react-3d-animated-card": "^1.0.12",
     "@sl-codeblaster/react-3d-animated-card": "^1.0.8",
     "@testing-library/jest-dom": "^5.16.4",

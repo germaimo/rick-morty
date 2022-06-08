@@ -1,24 +1,44 @@
-import React from 'react';
+import React from "react";
 import "bulma/css/bulma.min.css";
+import Card from "react-animated-3d-card";
+import styles from './card3d.module.css'
 
+const Card3D = ({
+  character: { id, name, image, status, species, origin, location, episode },
+  handleClick,
+}) => {
+  return (
+    <div
+      onClick={() =>
+        handleClick({
+          id,
+          name,
+          image,
+          status,
+          species,
+          origin,
+          location,
+          episode,
+        })
+      }
+      className="column is-5-mobile is-3-desktop is-flex is-justify-content-center"
+    >
 
+      <Card>
+      <div className="card">
+        <div className="card-image">
+          <figure className="image is-128x128 is-clickable">
+            <img
+              className={styles['imgGris']}
+              src={image}
+              alt="profile big size"
+            />
+          </figure>
+        </div>
+      </div>
+      </Card>
+    </div>
+  );
+};
 
-const Card3D = ({ character: { id, name, image, status, species, origin, location }, handleClick }) => {
-    
-
-    return (
-        <div onClick={ () => handleClick(id)} className="column is-5-mobile is-3-desktop is-flex is-justify-content-center">
-            {/* <Card onClick={() => console.log("Card clicked")} > */}
-                <div className="card">
-                    <div className="card-image">
-                        <figure className="image is-128x128">
-                            <img style={{ filter: 'contrast(1.2)' }} src={image} alt="profile big size" />
-                        </figure>
-                    </div>
-                </div>
-            {/* </Card> */}
-        </div >
-    )
-}
-
-export default Card3D
+export default Card3D;

@@ -1,0 +1,17 @@
+.boldModule {
+  font-family: sofia-pro, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.regularModule {
+  font-family: sofia-pro, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lightModule {
+  font-family: sofia-pro, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}

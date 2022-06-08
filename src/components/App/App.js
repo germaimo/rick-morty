@@ -2,15 +2,17 @@ import React from "react";
 import { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import Characters from "../Characters/Characters";
+import Logo from "../Logo/Logo";
 import Menu from "../Menu/Menu";
 import Hero from "../Hero/Hero";
 import More from "../More/More";
 import Footer from "../Footer/Footer";
+import SearchBox from "../SearchBox/SearchBox";
 
 const App = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); //ante estaba en false hablar con lean esto
-  const [characterHero, setCharacterHero] = useState(0);
+  const [characterHero, setCharacterHero] = useState({});
 
   const getData = useCallback(async (from, to) => {
     try {
@@ -24,7 +26,9 @@ const App = () => {
       );
 
       setData(response.data);
-      console.log(response.data);
+      
+      setCharacterHero(response.data[0]);
+
       setLoading(false);
     } catch (error) {
       console.log("ERROR EN EL CATCH", error);
@@ -35,22 +39,26 @@ const App = () => {
     getData(1, 14);
   }, [getData]);
 
-  const handleCharacterHero = (num) => {
-    setCharacterHero(num);
-    console.log(num, characterHero);
+  const handleCharacterHero = (character) => {
+    setCharacterHero(character);
+    
   };
 
   return (
     <div className="container">
       <Menu />
+      <Logo/>
       {loading ? (
         <p>Loading...</p>
       ) : (
         <div className="columns is-multiline is-mobile is-justify-content-center">
-          <Hero data={data[characterHero]} />
+          <SearchBox />
+          <Hero data={characterHero}/>
+          
           <Characters handleCharacterHero={handleCharacterHero} data={data} />
         </div>
       )}
+
       <More />
       <Footer />
     </div>
