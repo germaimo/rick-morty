@@ -19,3 +19,8 @@
 .fixedWidth{
     width: 720px;
 }
+
+
+.fixedHeight{
+  height: fit-content;
+}

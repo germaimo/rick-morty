@@ -11,7 +11,7 @@ const CardHero = ({
       
       <div className={`box has-background-black ${styles['fixedWidth']}`}>
         <div className="card is-flex is-size-7-desktop is-size-7-touch">
-          <div className="box card-image m-4" style={{height:'fix-content'}}>
+          <div className={`box card-image m-4 ${styles['fixedHeight']} `}> 
             <figure className="image">
               <img
                 style={{ filter: "contrast(1.2)", maxWidth: '300px', maxHeight: '300px' }}
