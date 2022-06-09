@@ -7,7 +7,7 @@ const CardHero = ({
   character: { name, image, status, species, origin, location, episode }, referencia
 }) => {
   return (
-    <div ref={referencia} className="column is-full is-flex is-justify-content-center">
+    <div ref={referencia} className="column is-10 is-flex is-full is-justify-content-center">
       
       <div className={`box ${styles['fixedWidth']}`}>
         <div className="card is-flex is-size-7-desktop is-size-7-touch">
