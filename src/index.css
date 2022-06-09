@@ -15,3 +15,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+::-moz-selection { /* Code for Firefox */
+  color: #021317;
+  background: #CBFF2E;
+}
+
+::selection {
+  color: #021317;
+  background: #CBFF2E;
+}

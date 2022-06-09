@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import axios from "axios";
 import Characters from "../Characters/Characters";
 import Logo from "../Logo/Logo";
@@ -14,6 +14,7 @@ const App = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true); //ante estaba en false hablar con lean esto
   const [characterHero, setCharacterHero] = useState({});
+  const myRef = useRef(null);
 
   const getData = useCallback(async (from, to) => {
     try {
@@ -58,6 +59,7 @@ const App = () => {
 
   const handleCharacterHero = (character) => {
     setCharacterHero(character);
+    myRef.current.scrollIntoView() 
   };
 
   const handleSearch = (name) => {
@@ -73,7 +75,7 @@ const App = () => {
       ) : (
         <div className="columns is-multiline is-mobile is-justify-content-center">
           <SearchBox handleSearch={handleSearch} />
-          <Hero data={characterHero} />
+          <Hero referencia={myRef} data={characterHero} />
 
           <Characters handleCharacterHero={handleCharacterHero} data={data} />
         </div>

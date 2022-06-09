@@ -5,7 +5,7 @@ import CardHero from '../CardHero/CardHero';
 const Hero = (props) => {
   return (
     
-      <CardHero character={props.data} /> 
+      <CardHero referencia={props.referencia} character={props.data} /> 
     
   )
 }
