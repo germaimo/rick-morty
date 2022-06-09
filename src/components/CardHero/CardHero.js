@@ -9,9 +9,9 @@ const CardHero = ({
   return (
     <div ref={referencia} className="column is-10 is-flex is-full is-justify-content-center">
       
-      <div className={`box ${styles['fixedWidth']}`}>
+      <div className={`box has-background-black ${styles['fixedWidth']}`}>
         <div className="card is-flex is-size-7-desktop is-size-7-touch">
-          <div className="card-image">
+          <div className="box card-image m-4" style={{height:'fix-content'}}>
             <figure className="image">
               <img
                 style={{ filter: "contrast(1.2)", maxWidth: '300px', maxHeight: '300px' }}
