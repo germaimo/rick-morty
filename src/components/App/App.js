@@ -66,16 +66,20 @@ const App = () => {
     getSearchedData(name);
   };
 
+  const showMore = (episode) =>{
+    console.log(episode)
+  }
+
   return (
     <div className="container">
-      <Menu />
+      {/* <Menu /> */}
       <Logo />
       {loading ? (
         <p>Loading...</p>
       ) : (
         <div className="columns is-multiline is-mobile is-justify-content-center">
           <SearchBox handleSearch={handleSearch} />
-          <Hero referencia={myRef} data={characterHero} />
+          <Hero handleClick={showMore} referencia={myRef} data={characterHero} />
 
           <Characters handleCharacterHero={handleCharacterHero} data={data} />
         </div>
@@ -83,7 +87,7 @@ const App = () => {
 
       {/*<Toast message={'hola'} type={'is-primary'} position={'center'} closeOnClick={true} pauseOnHover={true} opacity={0.8}/>*/}
         
-      <More />
+      {/* <More /> */}
       <Footer />
     </div>
   );

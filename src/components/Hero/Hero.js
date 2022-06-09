@@ -2,10 +2,10 @@ import React from 'react'
 import "bulma/css/bulma.min.css";
 import CardHero from '../CardHero/CardHero';
 
-const Hero = (props) => {
+const Hero = ({handleClick, referencia, data}) => {
   return (
     
-      <CardHero referencia={props.referencia} character={props.data} /> 
+      <CardHero handleClick={handleClick} referencia={referencia} character={data} /> 
     
   )
 }

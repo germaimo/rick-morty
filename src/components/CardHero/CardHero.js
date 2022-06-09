@@ -4,7 +4,7 @@ import "bulma/css/bulma.min.css";
 import styles from './cardhero.module.css'
 
 const CardHero = ({
-  character: { name, image, status, species, origin, location, episode }, referencia
+  character: { name, image, status, species, origin, location, episode }, referencia, handleClick
 }) => {
   return (
     <div ref={referencia} className="column is-10 is-flex is-full is-justify-content-center">
@@ -30,7 +30,7 @@ const CardHero = ({
             </div>
 
             <div className="content">
-              <p className="mb-4">Appears in <span className="tag is-light">{episode.length}</span> {episode.length > 1 ? 'episodes': 'episode'}.</p>
+              <p className="mb-4">Appears in <span onClick={() => handleClick({ episode })} className="tag is-light">{episode.length}</span> {episode.length > 1 ? 'episodes': 'episode'}.</p>
               <br/>
               <p className="mt-6">Specimen: {species}</p>
             </div>
