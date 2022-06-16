@@ -26,10 +26,11 @@ const App = () => {
       const response = await axios.get(
         `https://rickandmortyapi.com/api/character/${charactersRange}`
       );
+      const characters = response.data;
+      const [firstCharacter, ...restCharacters] = characters;
 
-      setData(response.data);
-
-      setCharacterHero(response.data[0]);
+      setData(restCharacters);
+      setCharacterHero(firstCharacter);
 
       setLoading(false);
     } catch (error) {
@@ -42,8 +43,10 @@ const App = () => {
       const response = await axios.get(
         `https://rickandmortyapi.com/api/character/?name=${name}`
       );
-
+      // TODO const characters = [1,2,3,4] const [first, ...rest] = characters  
       setData(response.data.results);
+
+      response.data.filter((character)=> character.id !== characterHero.id);
 
       setCharacterHero(response.data.results[0]);
 
@@ -54,12 +57,12 @@ const App = () => {
   };
 
   useEffect(() => {
-    getData(1, 14);
+    getData(1, 17);
   }, [getData]);
 
   const handleCharacterHero = (character) => {
     setCharacterHero(character);
-    myRef.current.scrollIntoView() 
+    myRef.current.scrollIntoView(); 
   };
 
   const handleSearch = (name) => {
@@ -88,7 +91,7 @@ const App = () => {
       {/*<Toast message={'hola'} type={'is-primary'} position={'center'} closeOnClick={true} pauseOnHover={true} opacity={0.8}/>*/}
         
       {/* <More /> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

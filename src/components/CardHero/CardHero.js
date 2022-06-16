@@ -1,6 +1,7 @@
 import React from "react";
 import "bulma/css/bulma.min.css";
 
+
 import styles from './cardhero.module.css'
 
 const CardHero = ({
@@ -11,6 +12,7 @@ const CardHero = ({
       
       <div className={`box has-background-black ${styles['fixedWidth']}`}>
         <div className="card is-flex is-size-7-desktop is-size-7-touch">
+        
           <div className={`box card-image m-4 ${styles['fixedHeight']} `}> 
             <figure className="image">
               <img
@@ -20,6 +22,7 @@ const CardHero = ({
               />
             </figure>
           </div>
+          
           <div className="card-content">
             <div className="media">
               <div>
